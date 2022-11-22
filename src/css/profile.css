@@ -1,0 +1,13 @@
+.image_size {
+    width: 180px;
+    border-radius: 10px;
+}
+.border_radius {
+    border-radius: 15px;
+}
+.color1 {
+    color: #2b2a2a;
+}
+.color2 {
+    background-color: #efefef;
+}

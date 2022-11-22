@@ -1,0 +1,21 @@
+.background-image {
+    background-image: url("https://i.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4");
+    max-width: 100%;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+.background-image2 {
+    background-image: url("https://i.picsum.photos/id/3/5000/3333.jpg?hmac=GDjZ2uNWE3V59PkdDaOzTOuV3tPWWxJSf4fNcxu4S2g");
+    max-width: 100%;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+.letter-spacing {
+    letter-spacing: 1px;
+}
+.text-color-lightBlue {
+    color: #5aaeea;
+}
+.border-radius {
+    border-radius: 1rem;
+}

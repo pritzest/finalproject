@@ -1,0 +1,32 @@
+.nav-logout-color {
+    background-color: #4c5b61;
+}
+.nav-logout-color2 {
+    background-color: #88969c;
+}
+.nav-backgroundpic {
+    background-image: url("https://c0.wallpaperflare.com/preview/639/306/330/aerial-background-blog-cafe.jpg");
+    height: 150px;
+    max-width: 100%;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+.nav_card_size {
+    width: 100%;
+}
+.nav_card_picSize {
+    width: 100%;
+    max-width: 20%;
+}
+.nav_card_maxwdith {
+    max-width: 150px;
+}
+.cardPic {
+    max-height: 200px;
+    max-width: 200px;
+    object-fit: contain;
+}
+.imageCss {
+    height: 100%;
+    object-fit: contain;
+}
