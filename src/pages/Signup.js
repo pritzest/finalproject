@@ -1,4 +1,7 @@
 import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import "../css/loginsignup.css";
 function Signup() {
     document.title = "Login";
@@ -12,6 +15,7 @@ function Signup() {
     const [isFetching, setFetching] = useState(false);
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
+    const navigate = useNavigate();
 
     const changeHandler = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -64,6 +68,9 @@ function Signup() {
                 setFetching(false);
                 setSuccess(data.message);
                 setErrors(null);
+                setTimeout(() => {
+                    navigate("/");
+                }, 1000);
                 return;
             }
         } catch (err) {
@@ -202,12 +209,12 @@ function Signup() {
 
                                                 <p className="mb-5 pb-lg-2">
                                                     Already have an account?
-                                                    <a
-                                                        href="#!"
+                                                    <Link
+                                                        to="/login"
                                                         className="text-color-lightBlue"
                                                     >
                                                         Login here
-                                                    </a>
+                                                    </Link>
                                                 </p>
                                             </form>
                                         </div>

@@ -20,6 +20,7 @@ function Dashboard() {
     }, [title]);
 
     const getUsers = async () => {
+        console.log(title);
         const searchDB = title
             ? process.env.REACT_APP_SERVER_URI + `/blog/?title=${title}`
             : process.env.REACT_APP_SERVER_URI + `/blog/`;

@@ -24,7 +24,7 @@ function Card({
 
     const editPost = async (e) => {
         e.preventDefault();
-        navigate("/editblog/" + blog_id);
+        navigate("" + blog_id);
     };
     const deletePost = async (e) => {
         e.preventDefault();
@@ -65,48 +65,52 @@ function Card({
 
     return (
         <>
-            <div class="m-2">
-                <div class="card" style={{ width: "20rem" }}>
-                    <div class="img-container cardPic">
+            <div className="m-2 ml-3">
+                <div className="card cardShadow" style={{ width: "20rem" }}>
+                    <div className="img-container">
                         <img
                             src={
                                 !is_draft
                                     ? imageUrl
                                     : "https://www.color-name.com/color-image?c=4B4E53&square"
                             }
-                            class="image card-img-top imageCss"
+                            className="image card-img-top imageCss"
                             alt=""
                         />
                     </div>
-                    <div class="card-body">
+                    <div className="card-body">
                         {!allPosts && is_draft && (
                             <span href="#">
-                                <h6 class="card-title text-muted">(Draft)</h6>
+                                <h6 className="card-title text-muted">
+                                    (Draft)
+                                </h6>
                             </span>
                         )}
                         {!deleted_at ? (
-                            <Link to={"/dashboard/blog/" + blog_id}>
-                                <h5 class="card-title">{title}</h5>
+                            <Link to={"/" + blog_id}>
+                                <h5 className="card-title">{title}</h5>
                             </Link>
                         ) : (
-                            <h5 class="card-title">{title}</h5>
+                            <h5 className="card-title">{title}</h5>
                         )}
-                        <h6 class="card-subtitle mb-2 text-muted">
+                        <h6 className="card-subtitle mb-2 text-muted">
                             By {first_name} {last_name}
                         </h6>
-                        <p class="card-text">{description.slice(0, 10)}..</p>
+                        <p className="card-text">
+                            {description.slice(0, 10)}..
+                        </p>
                         {!allPosts && !deleted_at && (
                             <div>
                                 <button
                                     type="button"
-                                    class="btn btn-warning mx-1 mb-2"
+                                    className="btn btn-warning mx-1 mb-2"
                                     onClick={(e) => editPost(e)}
                                 >
                                     Edit
                                 </button>
                                 <button
                                     type="button"
-                                    class="btn btn-danger mx-1 mb-2"
+                                    className="btn btn-danger mx-1 mb-2"
                                     onClick={(e) => deletePost(e)}
                                 >
                                     Delete

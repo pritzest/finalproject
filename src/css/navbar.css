@@ -21,12 +21,19 @@
 .nav_card_maxwdith {
     max-width: 150px;
 }
-.cardPic {
+/* .cardPic {
     max-height: 200px;
     max-width: 200px;
     object-fit: contain;
-}
+} */
 .imageCss {
-    height: 100%;
-    object-fit: contain;
+    width: 20rem;
+    height: 13rem;
+    object-fit: cover;
+}
+.cardShadow {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.cardShadow:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

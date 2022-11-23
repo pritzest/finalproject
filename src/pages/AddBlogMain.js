@@ -8,7 +8,7 @@ function AddBlogMain() {
     return (
         <>
             <NavbarLogout>
-                <NavbarMain>
+                <NavbarMain addBlog={true}>
                     <div className="p-5 ml-5 mr-5">
                         <AddBlog />
                     </div>

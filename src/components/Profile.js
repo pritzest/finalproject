@@ -66,14 +66,14 @@ function Profile({
                                                 <Link
                                                     type="button"
                                                     className="btn btn-outline-primary me-1 flex-grow-1"
-                                                    to="/profile/editprofile"
+                                                    to="/dashboard/profile/edit"
                                                 >
                                                     Edit Account
                                                 </Link>
                                                 <Link
                                                     type="button"
                                                     className="btn btn-primary me-1 flex-grow-1"
-                                                    to="/profile/editpicture"
+                                                    to="/dashboard/profile/editpicture"
                                                 >
                                                     Edit Picture
                                                 </Link>

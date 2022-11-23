@@ -52,7 +52,7 @@ function ProfileMain() {
     return (
         <>
             <NavbarLogout>
-                <NavbarMain>
+                <NavbarMain profile={true}>
                     {user ? (
                         <Profile
                             first_name={user.first_name}

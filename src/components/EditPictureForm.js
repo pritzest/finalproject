@@ -57,7 +57,7 @@ function EditPictureForm() {
                 setErrors(null);
                 console.log(errors);
                 setTimeout(() => {
-                    navigate("/profile");
+                    navigate("/dashboard/profile");
                 }, 1000);
                 return;
             }
@@ -86,7 +86,7 @@ function EditPictureForm() {
                     <button
                         href="#"
                         className="btn btn-secondary mr-2"
-                        onClick={(e) => navigate("/profile")}
+                        onClick={(e) => navigate("/dashboard/profile")}
                     >
                         Cancel
                     </button>

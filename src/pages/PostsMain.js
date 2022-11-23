@@ -58,7 +58,7 @@ function PostsMain() {
     return (
         <>
             <NavbarLogout>
-                <NavbarMain dashboard={true}>
+                <NavbarMain posts={true}>
                     <div class="pl-5 mt-4 ml-1">
                         {" "}
                         <h5>Posted Blogs</h5>

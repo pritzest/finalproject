@@ -63,7 +63,7 @@ function EditBlog() {
                 setSuccess(data.message);
                 setErrors(null);
                 setTimeout(() => {
-                    navigate("/blog/userblogs");
+                    navigate("/dashboard/blog");
                 }, 1000);
                 return;
             }
@@ -156,7 +156,7 @@ function EditBlog() {
                     type="button"
                     className="btn btn-secondary"
                     disabled={isFetching}
-                    onClick={(e) => navigate("/blog/userblogs")}
+                    onClick={(e) => navigate("/dashboard/blog")}
                 >
                     Cancel
                 </button>

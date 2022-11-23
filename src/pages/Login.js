@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
 import "../css/loginsignup.css";
+import { Link } from "react-router-dom";
+import { useUser } from "../helper/UserProvider";
+
 function Login() {
     document.title = "Login";
     const emailInput = useRef();
@@ -7,6 +10,7 @@ function Login() {
     const [errors, setErrors] = useState(null);
     const [success, setSuccess] = useState(null);
     const [isFetching, setFetching] = useState(false);
+    const { setUserToken } = useUser();
 
     const loginUser = async (e) => {
         e.preventDefault();
@@ -41,11 +45,12 @@ function Login() {
                 // console.log(data.message);
                 return;
             } else {
-                localStorage.setItem("token", data.token);
                 localStorage.setItem("id", data._id);
+                localStorage.setItem("username", data.username);
                 setSuccess(data.message);
                 setErrors(null);
                 setFetching(false);
+                setUserToken(data.token);
                 return;
             }
         } catch (err) {
@@ -130,12 +135,12 @@ function Login() {
                                                 </div>
                                                 <p className="mb-5 pb-lg-2">
                                                     Don't have an account?
-                                                    <a
-                                                        href="#!"
+                                                    <Link
+                                                        to="/signup"
                                                         className="text-color-lightBlue"
                                                     >
                                                         Register here
-                                                    </a>
+                                                    </Link>
                                                 </p>
                                             </form>
                                         </div>

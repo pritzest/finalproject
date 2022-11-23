@@ -1,20 +1,23 @@
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function NavbarMain({ children, dashboard }) {
+function NavbarMain({ children, dashboard, addBlog, posts, profile }) {
+    const username = localStorage.getItem("username");
     const navigate = useNavigate();
     const searchInput = useRef();
+
     const onSearch = (e) => {
         e.preventDefault();
-
-        navigate("/dashboard/?title=" + searchInput.current.value);
+        navigate("/?title=" + searchInput.current.value);
     };
+
     return (
         <>
             <div className="p-1 text-center bg-image nav-backgroundpic"></div>
             <div className="p-2 text-center bg-light h-25">
-                <h1 className="mb-3 mt-2 h3 font-weight-bold">Blogstagram</h1>
-                <h4 className="h6">Just Another Blog Project</h4>
+                <h1 className="mb-3 mt-2 h2 font-weight-bold">Blogstagram</h1>
+                <h5 className="h6">Just Another Blog Project</h5>
+                <h4 className="h6">Hello, {username}!</h4>
             </div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light pl-5">
                 <a className="navbar-brand" href="#">
@@ -38,23 +41,38 @@ function NavbarMain({ children, dashboard }) {
                                 className={
                                     dashboard ? "nav-link active" : "nav-link"
                                 }
-                                to="/dashboard"
+                                to="/"
                             >
                                 Home
                             </Link>
                         </li>
                         <li className="nav-item ml-2 mr-2">
-                            <Link className={"nav-link"} to="/addblog">
+                            <Link
+                                className={
+                                    addBlog ? "nav-link active" : "nav-link"
+                                }
+                                to="/dashboard/addblog"
+                            >
                                 Add Blog
                             </Link>
                         </li>
                         <li className="nav-item ml-2 mr-2">
-                            <Link className="nav-link" to="/blog/userblogs">
+                            <Link
+                                className={
+                                    posts ? "nav-link active" : "nav-link"
+                                }
+                                to="/dashboard/blog"
+                            >
                                 Posts
                             </Link>
                         </li>
                         <li className="nav-item ml-2 mr-2">
-                            <Link className="nav-link" to="/profile">
+                            <Link
+                                className={
+                                    profile ? "nav-link active" : "nav-link"
+                                }
+                                to="/dashboard/profile"
+                            >
                                 Profile
                             </Link>
                         </li>

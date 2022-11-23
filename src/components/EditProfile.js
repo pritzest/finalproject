@@ -34,8 +34,7 @@ function EditProfile() {
             !firstNameInput.current.value ||
             !lastNameInput.current.value ||
             !usernameInput.current.value ||
-            !emailInput.current.value ||
-            !passwordInput.current.value
+            !emailInput.current.value
         ) {
             return;
         }
@@ -81,8 +80,9 @@ function EditProfile() {
                 setFetching(false);
                 setSuccess(data.message);
                 setErrors(null);
+                localStorage.setItem("username", usernameInput.current.value);
                 setTimeout(() => {
-                    navigate("/profile");
+                    navigate("/dashboard/profile");
                 }, 1000);
                 return;
             }
@@ -118,7 +118,6 @@ function EditProfile() {
                 lastNameInput.current.value = data.user.last_name;
                 emailInput.current.value = data.user.email;
                 usernameInput.current.value = data.user.username;
-                passwordInput.current.value = data.user.password;
                 return;
             }
         } catch (err) {
