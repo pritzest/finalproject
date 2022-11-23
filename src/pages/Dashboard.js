@@ -3,6 +3,7 @@ import "../index.css";
 import NavbarLogout from "../components/NavbarLogout";
 import NavbarMain from "../components/NavbarMain";
 import Card from "../components/Card";
+import { useSearchParams } from "react-router-dom";
 
 function Dashboard() {
     document.title = "Dashboard";
@@ -11,23 +12,25 @@ function Dashboard() {
     const [blogs, setBlogs] = useState([]);
     const [isFetching, setFetching] = useState(false);
     const token = localStorage.getItem("token");
+    const [searchParams] = useSearchParams();
+    const title = searchParams.get("title");
 
     useEffect(() => {
         getUsers();
-    }, []);
+    }, [title]);
 
     const getUsers = async () => {
+        const searchDB = title
+            ? process.env.REACT_APP_SERVER_URI + `/blog/?title=${title}`
+            : process.env.REACT_APP_SERVER_URI + `/blog/`;
         try {
-            const result = await fetch(
-                process.env.REACT_APP_SERVER_URI + "/blog/",
-                {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: "Bearer " + token,
-                    },
-                }
-            );
+            const result = await fetch(searchDB, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer " + token,
+                },
+            });
             const data = await result.json();
             console.log(result, data);
             if (result.status === 422) {

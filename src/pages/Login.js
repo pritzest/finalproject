@@ -5,6 +5,7 @@ function Login() {
     const emailInput = useRef();
     const passwordInput = useRef();
     const [errors, setErrors] = useState(null);
+    const [success, setSuccess] = useState(null);
     const [isFetching, setFetching] = useState(false);
 
     const loginUser = async (e) => {
@@ -29,17 +30,21 @@ function Login() {
             // console.log(result, data);
             if (result.status === 422) {
                 setErrors(data.message[0].msg);
+                setSuccess(null);
                 setFetching(false);
                 return;
             }
             if (result.status !== 200) {
                 setFetching(false);
                 setErrors(data.message);
+                setSuccess(null);
                 // console.log(data.message);
                 return;
             } else {
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("id", data._id);
+                setSuccess(data.message);
+                setErrors(null);
                 setFetching(false);
                 return;
             }
@@ -66,11 +71,17 @@ function Login() {
                                                         Blogstagram
                                                     </span>
                                                 </div>
+                                                {success && (
+                                                    <div className="alert alert-success">
+                                                        {success}
+                                                    </div>
+                                                )}
                                                 {errors && (
                                                     <div className="alert alert-danger">
                                                         {errors}
                                                     </div>
                                                 )}
+
                                                 <h5 className="fw-normal mb-3 pb-3 letter-spacing">
                                                     Sign into your account
                                                 </h5>

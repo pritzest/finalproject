@@ -130,6 +130,7 @@ function PostsMain() {
                                           id={blog.user_id._id}
                                           date={blog.createdAt}
                                           blog_id={blog.id}
+                                          deleted_at={blog.deleted_at}
                                       />
                                   );
                               })

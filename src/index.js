@@ -13,6 +13,7 @@ import AddBlogMain from "./pages/AddBlogMain";
 import EditProfile from "./pages/EditProfileMain";
 import PostsMain from "./pages/PostsMain";
 import EditBlogMain from "./pages/EditBlogMain";
+import EditPictureMain from "./pages/EditPictureMain";
 
 const router = createBrowserRouter([
     {
@@ -48,8 +49,12 @@ const router = createBrowserRouter([
         element: <EditBlogMain />,
     },
     {
-        path: "/edit",
+        path: "/profile/editprofile",
         element: <EditProfile />,
+    },
+    {
+        path: "/profile/editpicture",
+        element: <EditPictureMain />,
     },
     {
         path: "/blog/userblogs",

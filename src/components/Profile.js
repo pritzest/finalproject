@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../css/profile.css";
 
 function Profile({
@@ -62,12 +63,20 @@ function Profile({
                                                 </div>
                                             </div>
                                             <div className="d-flex pt-1">
-                                                <button
+                                                <Link
                                                     type="button"
                                                     className="btn btn-outline-primary me-1 flex-grow-1"
+                                                    to="/profile/editprofile"
                                                 >
                                                     Edit Account
-                                                </button>
+                                                </Link>
+                                                <Link
+                                                    type="button"
+                                                    className="btn btn-primary me-1 flex-grow-1"
+                                                    to="/profile/editpicture"
+                                                >
+                                                    Edit Picture
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

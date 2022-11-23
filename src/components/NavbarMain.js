@@ -1,8 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavbarMain({ children, dashboard }) {
-    console.log(dashboard);
+    const navigate = useNavigate();
+    const searchInput = useRef();
+    const onSearch = (e) => {
+        e.preventDefault();
+
+        navigate("/dashboard/?title=" + searchInput.current.value);
+    };
     return (
         <>
             <div className="p-1 text-center bg-image nav-backgroundpic"></div>
@@ -62,10 +68,12 @@ function NavbarMain({ children, dashboard }) {
                             type="search"
                             placeholder="Search"
                             aria-label="Search"
+                            ref={searchInput}
                         />
                         <button
                             className="btn btn-outline-white btn-md my-2 my-sm-0 ml-3"
                             type="submit"
+                            onClick={(e) => onSearch(e)}
                         >
                             Search
                         </button>
